@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"name": "Backlight Niklas",
+		"room": "Schlafzimmer",
+		"type": "433hz_1_1"
+	},
+	{
+		"id": 2,
+		"name": "Backlight Karen",
+		"room": "Schlafzimmer",
+		"type": "433hz_1_2"
+	},
+	{
+		"id": 3,
+		"name": "Lichtkugel Boden",
+		"room": "Schlafzimmer",
+		"type": "433hz_1_3"
+	},
+	{
+		"id": 4,
+		"name": "Deckenlampe",
+		"room": "Wohnzimmer",
+		"type": "bt_lixada_rgb"
+	}
+]

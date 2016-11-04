@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    section(layout='row')
+        ng-include(src="'js/app/views/sidebar.html'" layout="column")
+        md-content(ng-view flex=100)
+    script(src='js/lib/tinycolor.js')
+    script(src='js/lib/angular/angular.js')
+    script(src='js/lib/angular/angular-animate.js')
+    script(src='js/lib/angular/angular-route.js')
+    script(src='js/lib/angular/angular-aria.js')
+    script(src='js/lib/angular/angular-messages.js')
+    script(src='js/lib/angular-material.js')
+    script(src='js/lib/mdColorPicker.js')
+    script(src='js/app/controllers/lightsController.js')
+    script(src='js/app/controllers/musicController.js')
+    script(src='js/app/controllers/indexController.js')
+    script(src='js/app/app.js')

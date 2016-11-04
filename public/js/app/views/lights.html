@@ -1,0 +1,18 @@
+<div flex ng-repeat="room in ctrl.rooms" class="md-padding">
+	<h2>{{room.name}}
+		<md-button ng-click="ctrl.toggleRoom(room.name, room.state)">{{ (room.state == '0') ? 'Turn room on' : 'Turn room off'}}</md-button>
+	</h2>
+	<div class="md-padding" layout-xs="column" layout="row">
+		<md-card ng-repeat="light in ctrl.lights | filter:{room:room.name}" md-theme="{{ (light.state == '0') ? 'dark-grey' : 'default' }}" md-theme-watch style="color:{{ (light.state == '0') ? 'white' : 'black' }};">
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-headline">{{light.name}}</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-actions layout="column" layout-align="start">
+				<md-button ng-click="ctrl.toggleLight(light)">{{ (light.state == '0') ? 'Turn on' : 'Turn off'}}</md-button>
+				<md-button ng-if="(light.state == 1) && (light.type_protocol == 'color')">Colorize</md-button>
+			</md-card-actions>
+		</md-card>
+	</div>
+</div>

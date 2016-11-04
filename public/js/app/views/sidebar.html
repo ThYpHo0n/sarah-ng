@@ -1,0 +1,42 @@
+<md-sidenav
+		class="md-sidenav-left"
+		md-component-id="left"
+		md-is-locked-open="$mdMedia('gt-md')"
+		md-disable-backdrop
+		md-whiteframe="4">
+	<md-content layout-padding ng-controller="MenuCtrl">
+		<md-toolbar class="md-theme-indigo">
+			<h1 class="md-toolbar-tools">S.A.R.A.H.</h1>
+		</md-toolbar>
+		<md-menu-content>
+			<a ng-href="/#/lights" style="text-decoration: none">
+				<md-menu-item>
+					<md-button>
+						<md-icon md-svg-src="img/icons/lightbulb-outline.svg" class="s48" aria-label="lightbulb"></md-icon>
+						Lights
+					</md-button>
+				</md-menu-item>
+			</a>
+			<a ng-href="/#/music" style="text-decoration: none">
+				<md-menu-item>
+					<md-button>
+						<md-icon md-svg-src="img/icons/music-note.svg" class="s48" aria-label="music-note"></md-icon>
+						Music
+					</md-button>
+				</md-menu-item>
+			</a>
+		</md-menu-content>
+	</md-content>
+</md-sidenav>
+<span ng-controller="MenuCtrl as ctrl" style="position: absolute; right: 1px;top:0px;">
+	<md-fab-toolbar md-open="false" ng-click="toggle()" count="ctrl.count" md-direction="left" hide-gt-md>
+		<md-fab-trigger class="align-with-text">
+			<md-button aria-label="menu" class="md-fab md-primary">
+				<md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+			</md-button>
+		</md-fab-trigger>
+		<md-toolbar>
+			<md-fab-actions class="md-toolbar-tools"><md-button aria-label="menu"></md-button></md-fab-actions>
+		</md-toolbar>
+	</md-fab-toolbar>
+</span>
