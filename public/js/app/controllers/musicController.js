@@ -22,22 +22,44 @@ function MusicCtrl($scope, $http) {
 		});
 	}
 
+	function setStream(client, stream) {
+		$http.post('/music/stream', {'client': client, 'id': stream}).then(function(response) {
+			console.log(response.data);
+		}).catch(function(error) {
+			console.log(error);
+		});
+	}
+
 	$http.get('/music').then(function(response) {
 		if (!response.data.error) {
 			vm.clients = response.data;
 			angular.forEach(vm.clients, function(client) {
 				client.volume = client.config.volume.percent;
+				client.stream = client.config.stream;
 				$scope.$watch(function() {
-							return client.volume;
-						}, function(newValue, oldValue) {
-							if (newValue !== oldValue) {
-								setVolume(client.host.mac, newValue);
-							}
-						}, true
-				);
+					return client.volume;
+				}, function(newValue, oldValue) {
+					if (newValue !== oldValue) {
+						setVolume(client.host.mac, newValue);
+					}
+				}, true);
+
+				$scope.$watch(function() {
+					return client.stream;
+				}, function(newValue, oldValue) {
+					if (newValue !== oldValue) {
+						setStream(client.host.mac, newValue);
+					}
+				}, true);
 			});
 		} else {
 			console.log(response.data);
+		}
+	});
+
+	$http.get('/streams').then(function(response) {
+		if (!response.data.error) {
+			vm.streams = response.data;
 		}
 	});
 }

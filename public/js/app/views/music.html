@@ -17,7 +17,14 @@
 					<span class="md-body-1">Volume {{client.volume}}</span>
 				</div>
 				<md-slider flex class="md-warn" md-discrete ng-model="client.volume" step="10" min="0" max="100" aria-label="volume">
-
+					<div flex="10" layout layout-align="center center">
+						<span class="md-body-1">Stream {{client.stream}}</span>
+					</div>
+					<md-select ng-model="client.stream">
+						<md-option ng-repeat="stream in ctrl.streams" ng-value="stream.id">
+							{{stream.id}}
+						</md-option>
+					</md-select>
 			</md-card-content>
 			<md-card-actions layout="column" layout-align="start">
 				<md-button ng-click="ctrl.muteClient(client.host.mac)">{{ (client.config.volume.muted == '0') ? 'Mute' : 'Unmute'}}</md-button>

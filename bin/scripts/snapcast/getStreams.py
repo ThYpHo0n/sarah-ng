@@ -22,6 +22,6 @@ def doRequest(j, requestId):
 
 
 j = doRequest(json.dumps({'jsonrpc': '2.0', 'method': 'Server.GetStatus', 'id': 1}), 1)
-print(json.dumps(j["result"]["clients"]))
+print(json.dumps(j["result"]["streams"]))
 
 telnet.close

@@ -1,3 +1,5 @@
 node_modules
 heaters.json
 lights.json
+npm-debug.log
+music.json
